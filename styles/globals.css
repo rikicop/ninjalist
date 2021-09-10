@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
 
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", "sans-serif";
+}
+
 body {
   background: #f2f2f2;
   color: #333;
@@ -12,6 +19,7 @@ a {
 .content {
   max-width: 960px;
   margin: 0 auto;
+  overflow: hidden;
 }
 nav {
   margin: 10px auto 80px;
@@ -27,6 +35,50 @@ nav a {
 nav .logo {
   margin-right: auto;
 }
+
+.menu-icon {
+  display: none;
+}
+
+/* No Funciona, hacer con styled components */
+.menu-icon{
+  transform: rotate(180deg);
+  transition: all 0.2s ease-in-out;
+}
+ 
+.menu-list{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-list li a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+  padding: 5px 10px;
+  margin-left: 20px;
+}
+
+.menu-list li:last-child a {
+  font-weight: bolder;
+  padding: 5px;
+  background-color: #4979ff;
+  transition: all 0.5s ease-in-out;
+  margin-left: 20px;
+  border-radius: 2px;
+}
+
+.menu-list li a:hover,
+.menu-list li a.active {
+  font-weight: bolder;
+  background-color: #fff;
+  border-radius: 2px;
+  color: rgb(0, 0, 0);
+  transition: all 0.5s ease-in-out;
+}
+
 footer {
   display: block;
   text-align: center;
@@ -41,4 +93,53 @@ footer {
 .not-found a{
   color: #4979ff;
   text-decoration: underline;
+}
+
+
+@media screen and (max-width: 800px) {
+  
+  /* .logo{ font-size: 20px; } */
+
+  .menu-list li a {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  .menu-icon {
+    display: block;
+  }
+  .menu-list {
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    left: 0;
+    top: 110px;
+    transition: all 0.5s ease-in-out;
+  }
+   .menu-list li{
+     margin-bottom: 20px;
+     width: 100%;
+     text-align: center;
+   }
+
+   .menu-list li:last-child{
+     margin-bottom: 0px;
+   }
+
+   .menu-list li a,
+   .menu-list li:last-child a {
+     width: 100px;
+     display: block;
+     margin: auto;
+   }
+   
+   .menu-list.close {
+    left: -120%;
+    transition: all 0.5s ease-in-out;
+  } 
 }
