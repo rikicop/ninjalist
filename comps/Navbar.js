@@ -2,8 +2,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 import Image from 'next/image'
-import { FaBars } from 'react-icons/fa';
-import { FaTimes } from 'react-icons/fa';
+import { Barras , Cerrar } from './NavbarElements';
 import { MenuList } from './MenuList';
 import { useState } from 'react';
 
@@ -32,7 +31,8 @@ const Navbar = () => {
                <Image src="/logo.png"  width={128} height={77}/>
              </div>
              <div className="menu-icon" onClick={handleClick}>
-                { clicked ?  <FaTimes/> : <FaBars/>}              
+                { clicked ?  <Cerrar /> 
+                          : <Barras />}              
              </div>
              <ul className={ clicked ? "menu-list": "menu-list close"} onClick={handleClick}>
                {menuList}
