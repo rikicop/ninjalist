@@ -1,3 +1,38 @@
+** Algunos Detalles **
+
+1. Tuve que instalar  "babel-preset-next": "^1.4.0", por que me daba un error por
+usar styled components y crear un archivo llamado .babelrc con este contenido.
+  {
+    "presets": ["next/babel"],
+    "plugins": [["styled-components", { "ssr": true }]]
+  }
+  
+  
+2. Efectos, lo que tuve que hacer para agregarle animaciòn a las FaBars... 
+    
+import styled, { keyframes } from 'styled-components';
+import { FaBars , FaTimes } from 'react-icons/fa';
+
+const spin = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+`
+
+export const Barras = styled(FaBars)`
+  animation: 0.2s linear ${spin};
+  
+`;
+
+export const Cerrar = styled(FaTimes)`
+  animation: 0.2s linear ${spin};
+ 
+    
+`;
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
